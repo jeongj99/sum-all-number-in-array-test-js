@@ -1,5 +1,10 @@
-function sumItems(array) {
-  // Sum all the numbers in the array
-}
+const sumItems = array => {
+  return array.reduce((accumulator, curr) => {
+    if (Array.isArray(curr)) {
+      return accumulator + sumItems(curr);
+    }
+    return accumulator + curr;
+  }, 0);
+};
 
 module.exports = sumItems;
